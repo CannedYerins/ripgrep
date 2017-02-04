@@ -1,4 +1,6 @@
-use std::fs::File;
+use std::fs::{File, OpenOptions};
+#[cfg(windows)]
+use std::os::windows::fs::OpenOptionsExt;
 use std::io;
 use std::path::Path;
 
@@ -11,6 +13,8 @@ use pathutil::strip_prefix;
 use printer::Printer;
 use search_buffer::BufferSearcher;
 use search_stream::{InputBuffer, Searcher};
+#[cfg(windows)]
+use winapi;
 
 use Result;
 
@@ -203,7 +207,7 @@ impl Worker {
             }
             Work::DirEntry(dent) => {
                 let mut path = dent.path();
-                let file = match File::open(path) {
+                let file = match self.open_file(&path) {
                     Ok(file) => file,
                     Err(err) => {
                         if !self.opts.no_messages {
@@ -233,6 +237,19 @@ impl Worker {
                 0
             }
         }
+    }
+
+    #[cfg(windows)]
+    fn open_file(&self, path: &Path) -> io::Result<File> {
+        OpenOptions::new()
+            .read(true)
+            .custom_flags(winapi::FILE_FLAG_SEQUENTIAL_SCAN)
+            .open(path)
+    }
+
+    #[cfg(not(windows))]
+    fn open_file(&self, path: &Path) -> io::Result<File> {
+        File::open(path)
     }
 
     fn search<R: io::Read, W: WriteColor>(
