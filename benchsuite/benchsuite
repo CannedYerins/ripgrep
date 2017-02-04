@@ -1259,7 +1259,7 @@ def main():
             'benchmark', 'warmup_iter', 'iter',
             'name', 'command', 'duration', 'lines', 'env',
         ]
-        raw_handle = open(args.raw, 'w+')
+        raw_handle = open(args.raw, 'w+', encoding='utf-8')
         raw_csv_wtr = csv.DictWriter(raw_handle, fields)
         raw_csv_wtr.writerow({x: x for x in fields})
 

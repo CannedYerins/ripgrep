@@ -1,0 +1,126 @@
+linux_alternates (pattern: ERR_SYS|PME_TURN_OFF|LINK_REQ_RST|CFG_BME_EVT)
+-------------------------------------------------------------------------
+rg (ignore)         1.719 +/- 0.016 (lines: 68)
+rg (whitelist)*     1.599 +/- 0.009 (lines: 68)*
+
+linux_alternates_casei (pattern: ERR_SYS|PME_TURN_OFF|LINK_REQ_RST|CFG_BME_EVT)
+-------------------------------------------------------------------------------
+rg (ignore)         1.818 +/- 0.106 (lines: 160)
+rg (whitelist)*     1.635 +/- 0.009 (lines: 160)*
+
+linux_literal (pattern: PM_RESUME)
+----------------------------------
+rg (ignore)          1.651 +/- 0.154 (lines: 16)
+rg (ignore) (mmap)   1.932 +/- 0.009 (lines: 16)
+rg (whitelist)*      1.349 +/- 0.024 (lines: 16)*
+
+linux_literal_casei (pattern: PM_RESUME)
+----------------------------------------
+rg (ignore)          1.667 +/- 0.024 (lines: 370)
+rg (ignore) (mmap)   2.073 +/- 0.086 (lines: 370)
+rg (whitelist)*      1.443 +/- 0.018 (lines: 370)*
+
+linux_literal_default (pattern: PM_RESUME)
+------------------------------------------
+rg*        1.557 +/- 0.009 (lines: 16)*
+
+linux_no_literal (pattern: \w{5}\s+\w{5}\s+\w{5}\s+\w{5}\s+\w{5})
+-----------------------------------------------------------------
+rg (ignore)                 2.057 +/- 0.090 (lines: 490)
+rg (ignore) (ASCII)         1.802 +/- 0.090 (lines: 490)
+rg (whitelist)              1.938 +/- 0.162 (lines: 418)
+rg (whitelist) (ASCII)*     1.542 +/- 0.059 (lines: 418)*
+
+linux_re_literal_suffix (pattern: [A-Z]+_RESUME)
+------------------------------------------------
+rg (ignore)         1.583 +/- 0.009 (lines: 1652)
+rg (whitelist)*     1.354 +/- 0.009 (lines: 1630)*
+
+linux_unicode_greek (pattern: \p{Greek})
+----------------------------------------
+rg*    1.771 +/- 0.090 (lines: 23)*
+
+linux_unicode_greek_casei (pattern: \p{Greek})
+----------------------------------------------
+rg*    1.714 +/- 0.009 (lines: 103)*
+
+linux_unicode_word (pattern: \wAh)
+----------------------------------
+rg (ignore)                 1.578 +/- 0.000 (lines: 186)
+rg (ignore) (ASCII)         1.568 +/- 0.009 (lines: 174)
+rg (whitelist)*             1.312 +/- 0.124 (lines: 180)*
+rg (whitelist) (ASCII)      1.339 +/- 0.009 (lines: 168)
+
+linux_word (pattern: PM_RESUME)
+-------------------------------
+rg (ignore)         1.536 +/- 0.009 (lines: 6)
+rg (whitelist)*     1.344 +/- 0.016 (lines: 6)*
+
+subtitles_en_alternate (pattern: Sherlock Holmes|John Watson|Irene Adler|Inspector Lestrade|Professor Moriarty)
+---------------------------------------------------------------------------------------------------------------
+rg (lines)     2.625 +/- 0.000 (lines: 848)
+rg*            2.500 +/- 0.000 (lines: 848)*
+
+subtitles_en_alternate_casei (pattern: Sherlock Holmes|John Watson|Irene Adler|Inspector Lestrade|Professor Moriarty)
+---------------------------------------------------------------------------------------------------------------------
+rg*            2.724 +/- 0.009 (lines: 862)*
+
+subtitles_en_literal (pattern: Sherlock Holmes)
+-----------------------------------------------
+rg*            0.474 +/- 0.009 (lines: 629)*
+rg (no mmap)   0.688 +/- 0.016 (lines: 629)
+rg (lines)     0.625 +/- 0.027 (lines: 629)
+
+subtitles_en_literal_casei (pattern: Sherlock Holmes)
+-----------------------------------------------------
+rg*                   2.547 +/- 0.054 (lines: 642)*
+rg (lines)            2.667 +/- 0.039 (lines: 642)
+
+subtitles_en_literal_word (pattern: Sherlock Holmes)
+----------------------------------------------------
+rg (ASCII)*    0.609 +/- 0.027 (lines: 629)
+rg             0.599 +/- 0.009 (lines: 629)*
+
+subtitles_en_no_literal (pattern: \w{5}\s+\w{5}\s+\w{5}\s+\w{5}\s+\w{5}\s+\w{5}\s+\w{5})
+----------------------------------------------------------------------------------------
+rg             2.870 +/- 0.024 (lines: 13)
+rg (ASCII)*    2.615 +/- 0.009 (lines: 13)*
+
+subtitles_en_surrounding_words (pattern: \w+\s+Holmes\s+\w+)
+------------------------------------------------------------
+rg*            0.620 +/- 0.009 (lines: 317)*
+rg (ASCII)     0.620 +/- 0.009 (lines: 317)
+
+subtitles_ru_alternate (pattern: Шерлок Холмс|Джон Уотсон|Ирен Адлер|инспектор Лестрейд|профессор Мориарти)
+-----------------------------------------------------------------------------------------------------------
+rg (lines)     4.651 +/- 0.024 (lines: 691)
+rg*            4.411 +/- 0.009 (lines: 691)*
+
+subtitles_ru_alternate_casei (pattern: Шерлок Холмс|Джон Уотсон|Ирен Адлер|инспектор Лестрейд|профессор Мориарти)
+-----------------------------------------------------------------------------------------------------------------
+rg*            4.833 +/- 0.024 (lines: 735)*
+
+subtitles_ru_literal (pattern: Шерлок Холмс)
+--------------------------------------------
+rg*            0.677 +/- 0.024 (lines: 583)*
+rg (no mmap)   1.042 +/- 0.050 (lines: 583)
+rg (lines)     0.912 +/- 0.009 (lines: 583)
+
+subtitles_ru_literal_casei (pattern: Шерлок Холмс)
+--------------------------------------------------
+rg*                   4.505 +/- 0.036 (lines: 604)*
+rg (lines)            4.630 +/- 0.009 (lines: 604)
+
+subtitles_ru_literal_word (pattern: Шерлок Холмс)
+-------------------------------------------------
+rg (ASCII)*    0.661 +/- 0.024 (lines: 0)*
+rg             0.885 +/- 0.033 (lines: 579)
+
+subtitles_ru_no_literal (pattern: \w{5}\s+\w{5}\s+\w{5}\s+\w{5}\s+\w{5}\s+\w{5}\s+\w{5})
+----------------------------------------------------------------------------------------
+rg             5.047 +/- 0.027 (lines: 41)
+rg (ASCII)*    4.323 +/- 0.009 (lines: 0)*
+
+subtitles_ru_surrounding_words (pattern: \w+\s+Холмс\s+\w+)
+-----------------------------------------------------------
+rg*            0.891 +/- 0.027 (lines: 278)*
